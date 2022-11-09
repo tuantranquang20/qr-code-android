@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="qrCodeType"
+            type="vn.app.qrcode.data.model.QRCodeType" />
+
+        <variable
+            name="messageFragment"
+            type="vn.app.qrcode.ui.studio.message.MessageFragment" />
+
+        <variable
+            name="messageViewModel"
+            type="vn.app.qrcode.ui.studio.message.MessageViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.studio.message.MessageFragment">
+
+        <ImageView
+            android:id="@+id/imgBack"
+            style="@style/ToolbarLeftIcon"
+            android:onClick="@{_ -> messageFragment.onBack()}"
+            android:src="@drawable/ic_left_arrow"
+            app:layout_constraintBottom_toBottomOf="@+id/tvToolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvToolbar" />
+
+        <TextView
+            android:id="@+id/tvToolbar"
+            style="@style/TextNotoStyle.TextXXLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            tvToolbar="@{qrCodeType.nameId}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvToolbar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/padding_bottom_in_scroll_view"
+                android:paddingHorizontal="@dimen/spacing_padding_vertical_content">
+                <include
+                    android:id="@+id/layoutIconText"
+                    layout="@layout/item_creator"
+                    qrCodeType="@{qrCodeType}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/edit_text_phone"
+                    style="@style/TextNotoStyle.TextLargeBold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:background="@drawable/bg_radius_edit_text"
+                    android:hint="To"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:inputType="phone"
+                    android:maxLength="@integer/max_length_text_name"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="44dp"
+                    android:paddingVertical="12dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layoutIconText" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/img_add_phone_field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_end_icon_in_edit_text"
+                    android:onClick="@{_-> messageFragment.addPhone()}"
+                    android:src="@drawable/ic_add_circle"
+                    app:layout_constraintBottom_toBottomOf="@+id/edit_text_phone"
+                    app:layout_constraintEnd_toEndOf="@+id/edit_text_phone"
+                    app:layout_constraintTop_toTopOf="@+id/edit_text_phone" />
+
+                <TextView
+                    android:id="@+id/tv_error"
+                    style="@style/TextErrorStyle.TextNormal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    text_error="@{messageViewModel.firstPhoneNumber.error}"
+                    app:layout_constraintEnd_toEndOf="@+id/edit_text_phone"
+                    app:layout_constraintStart_toStartOf="@+id/edit_text_phone"
+                    app:layout_constraintTop_toBottomOf="@+id/edit_text_phone" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_phones"
+                    android:layout_width="match_parent"
+                    android:overScrollMode="never"
+                    android:layout_height="wrap_content"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_error" />
+
+                <EditText
+                    android:id="@+id/edit_text_message"
+                    style="@style/TextNotoStyle.TextLarge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_radius_edit_text"
+                    android:gravity="top|start"
+                    android:hint="Enter your message..."
+                    android:lines="10"
+                    android:maxLength="@integer/max_length_text_area"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="12dp"
+                    android:scrollbars="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rv_phones" />
+
+                <TextView
+                    android:id="@+id/tv_error_message"
+                    style="@style/TextErrorStyle.TextNormal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="@+id/edit_text_message"
+                    app:layout_constraintStart_toStartOf="@+id/edit_text_message"
+                    app:layout_constraintTop_toBottomOf="@+id/edit_text_message" />
+
+                <TextView
+                    android:id="@+id/textSize"
+                    style="@style/TextNotoStyle.TextNormal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue1"
+                    android:layout_marginEnd="4dp"
+                    app:layout_constraintEnd_toEndOf="@+id/edit_text_message"
+                    app:layout_constraintTop_toTopOf="@+id/edit_text_message"
+                    tools:text="1000" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnCreate"
+                    style="@style/ButtonCreator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="35dp"
+                    android:onClick="@{_-> messageFragment.createQrCode()}"
+                    android:text="@string/btn_create"
+                    android:paddingHorizontal="@dimen/padding_horizontal_create"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edit_text_message" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

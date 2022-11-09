@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="qrCodeType"
+            type="vn.app.qrcode.data.model.QRCodeType" />
+
+        <variable
+            name="itemCreatorListener"
+            type="vn.app.qrcode.ui.studio.creator.ItemCreatorListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:onClick="@{() -> itemCreatorListener.onSelectedItem(qrCodeType)}">
+
+        <ImageView
+            android:id="@+id/imgIcon"
+            iconQrCode="@{qrCodeType.type}"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_email" />
+
+        <TextView
+            android:id="@+id/tvName"
+            style="@style/TextNotoStyle.TextNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            nameQrCode="@{qrCodeType}"
+            app:layout_constraintEnd_toEndOf="@+id/imgIcon"
+            app:layout_constraintStart_toStartOf="@+id/imgIcon"
+            app:layout_constraintTop_toBottomOf="@+id/imgIcon"
+            tools:text="Email" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

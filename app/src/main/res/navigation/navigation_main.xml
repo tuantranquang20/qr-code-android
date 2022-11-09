@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_main"
+    app:startDestination="@id/cameraFragment">
+
+<!--    <fragment-->
+<!--        android:id="@+id/productFragment"-->
+<!--        android:name="vn.app.qrcode.ui.product.ProductFragment"-->
+<!--        android:label="@string/title_nav_product"-->
+<!--        tools:layout="@layout/fragment_product" />-->
+    <fragment
+        android:id="@+id/studioFragment"
+        android:name="vn.app.qrcode.ui.studio.StudioFragment"
+        android:label="@string/title_nav_studio"
+        tools:layout="@layout/fragment_studio">
+        <action
+            android:id="@+id/action_studio_fragment_to_creator_fragment"
+            app:destination="@id/creatorFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_left"
+            app:popEnterAnim="@anim/slide_right"
+            app:popExitAnim="@anim/slide_out" />
+        <action
+            android:id="@+id/action_studioFragment_to_qrCodeDetailFragment"
+            app:destination="@id/qrCodeDetailFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="vn.app.qrcode.ui.history.HistoryFragment"
+        android:label="@string/title_nav_history"
+        tools:layout="@layout/fragment_history" >
+        <action
+            android:id="@+id/action_historyFragment_to_qrCodeDetailFragment"
+            app:destination="@id/qrCodeDetailFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out" />
+    </fragment>
+
+<!--    <fragment-->
+<!--        android:id="@+id/settingFragment"-->
+<!--        android:name="vn.app.qrcode.ui.setting.SettingFragment"-->
+<!--        android:label="@string/title_nav_setting"-->
+<!--        tools:layout="@layout/fragment_setting" />-->
+    <fragment
+        android:id="@+id/cameraFragment"
+        android:name="vn.app.qrcode.ui.home.camera.CameraFragment"
+        android:label="CameraFragment"
+        tools:layout="@layout/fragment_camera">
+        <action
+            android:id="@+id/action_camera_fragment_to_result_scan_fragment"
+            app:destination="@id/resultScanFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_left"
+            app:popEnterAnim="@anim/slide_right"
+            app:popExitAnim="@anim/slide_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultScanFragment"
+        android:name="vn.app.qrcode.ui.home.resultScan.ResultScanFragment"
+        android:label="ResultScanFragment"
+        tools:layout="@layout/fragment_home_resaultscans" />
+    <fragment
+        android:id="@+id/creatorFragment"
+        android:name="vn.app.qrcode.ui.studio.creator.CreatorFragment"
+        android:label="CreatorFragment"
+        tools:layout="@layout/fragment_creator">
+        <action
+            android:id="@+id/action_creator_fragment_to_creator_wifi_fragment"
+            app:destination="@id/creatorWifiFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_left"
+            app:popEnterAnim="@anim/slide_right"
+            app:popExitAnim="@anim/slide_out" />
+        <action
+            android:id="@+id/action_creatorFragment_to_urlFragment"
+            app:destination="@id/urlFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_left"
+            app:popEnterAnim="@anim/slide_right"
+            app:popExitAnim="@anim/slide_out" />
+        <action
+            android:id="@+id/action_creatorFragment_to_textFragment"
+            app:destination="@id/textFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_left"
+            app:popEnterAnim="@anim/slide_right"
+            app:popExitAnim="@anim/slide_out" />
+        <action
+            android:id="@+id/action_creatorFragment_to_messageFragment"
+            app:destination="@id/messageFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_left"
+            app:popEnterAnim="@anim/slide_right"
+            app:popExitAnim="@anim/slide_out" />
+        <action
+            android:id="@+id/action_creatorFragment_to_eventFragment"
+            app:destination="@id/eventFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_left"
+            app:popEnterAnim="@anim/slide_right"
+            app:popExitAnim="@anim/slide_out" />
+        <action
+            android:id="@+id/action_creator_fragment_to_creator_email_fragment"
+            app:destination="@id/creatorEmailFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_left"
+            app:popEnterAnim="@anim/slide_right"
+            app:popExitAnim="@anim/slide_out" />
+        <action
+            android:id="@+id/action_creator_fragment_to_creator_namecard_fragment"
+            app:destination="@id/creatorNamecardFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_left"
+            app:popEnterAnim="@anim/slide_right"
+            app:popExitAnim="@anim/slide_out" />
+        <action
+            android:id="@+id/action_creator_fragment_to_creator_contact_fragment"
+            app:destination="@id/creatorContactFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_left"
+            app:popEnterAnim="@anim/slide_right"
+            app:popExitAnim="@anim/slide_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/creatorWifiFragment"
+        android:name="vn.app.qrcode.ui.studio.wifi.CreatorWifiFragment"
+        android:label="CreatorWifiFragment"
+        tools:layout="@layout/fragment_creator_wifi">
+        <action
+            android:id="@+id/action_creator_wifi_fragment_to_result_creator_fragment"
+            app:destination="@id/resultCreatorFragment"
+            app:popUpTo="@id/creatorFragment"
+            app:popUpToInclusive="false"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_left"
+            app:popEnterAnim="@anim/slide_right"
+            app:popExitAnim="@anim/slide_out" />
+        <argument
+            android:name="qrCodeType"
+            app:argType="vn.app.qrcode.data.model.QRCodeType" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultCreatorFragment"
+        android:name="vn.app.qrcode.ui.studio.resultcreator.ResultCreatorFragment"
+        android:label="ResultCreatorFragment"
+        tools:layout="@layout/fragment_creator_resaultcreator">
+        <argument
+            android:name="resultCreator"
+            app:argType="vn.app.qrcode.data.model.ResultCreator" />
+    </fragment>
+    <fragment
+        android:id="@+id/textFragment"
+        android:name="vn.app.qrcode.ui.studio.text.TextFragment"
+        android:label="TextFragment"
+        tools:layout="@layout/fragment_creator_text">
+        <argument
+            android:name="qrCodeType"
+            app:argType="vn.app.qrcode.data.model.QRCodeType" />
+        <action
+            android:id="@+id/action_textFragment_to_resultCreatorFragment"
+            app:destination="@id/resultCreatorFragment"
+            app:popUpTo="@id/creatorFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_left"
+            app:popEnterAnim="@anim/slide_right"
+            app:popExitAnim="@anim/slide_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/messageFragment"
+        android:name="vn.app.qrcode.ui.studio.message.MessageFragment"
+        android:label="MessageFragment"
+        tools:layout="@layout/fragment_creator_message">
+        <argument
+            android:name="qrCodeType"
+            app:argType="vn.app.qrcode.data.model.QRCodeType" />
+        <action
+            android:id="@+id/action_messageFragment_to_resultCreatorFragment"
+            app:destination="@id/resultCreatorFragment"
+            app:popUpTo="@id/creatorFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_left"
+            app:popEnterAnim="@anim/slide_right"
+            app:popExitAnim="@anim/slide_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/eventFragment"
+        android:name="vn.app.qrcode.ui.studio.event.EventFragment"
+        android:label="EventFragment"
+        tools:layout="@layout/fragment_creator_event">
+        <argument
+            android:name="qrCodeType"
+            app:argType="vn.app.qrcode.data.model.QRCodeType" />
+        <action
+            android:id="@+id/action_eventFragment_to_resultCreatorFragment"
+            app:destination="@id/resultCreatorFragment"
+            app:popUpTo="@id/creatorFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_left"
+            app:popEnterAnim="@anim/slide_right"
+            app:popExitAnim="@anim/slide_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/urlFragment"
+        android:name="vn.app.qrcode.ui.studio.url.UrlFragment"
+        android:label="UrlFragment"
+        tools:layout="@layout/fragment_creator_url">
+
+        <argument
+            android:name="qrCodeType"
+            app:argType="vn.app.qrcode.data.model.QRCodeType" />
+        <action
+            android:id="@+id/action_urlFragment_to_resultCreatorFragment"
+            app:destination="@id/resultCreatorFragment"
+            app:popUpTo="@id/creatorFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_left"
+            app:popEnterAnim="@anim/slide_right"
+            app:popExitAnim="@anim/slide_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/creatorEmailFragment"
+        android:name="vn.app.qrcode.ui.studio.email.CreatorEmailFragment"
+        android:label="CreatorEmailFragment"
+        tools:layout="@layout/fragment_creator_email">
+        <action
+            android:id="@+id/action_creatorEmailFragment_to_resultCreatorFragment"
+            app:destination="@id/resultCreatorFragment"
+            app:popUpTo="@id/creatorFragment"
+            app:popUpToInclusive="false"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_left"
+            app:popEnterAnim="@anim/slide_right"
+            app:popExitAnim="@anim/slide_out" />
+        <argument
+            android:name="qrCodeType"
+            app:argType="vn.app.qrcode.data.model.QRCodeType" />
+    </fragment>
+    <fragment
+        android:id="@+id/creatorNamecardFragment"
+        android:name="vn.app.qrcode.ui.studio.namecard.CreatorNameCardFragment"
+        android:label="CreatorNamecardFragment"
+        tools:layout="@layout/fragment_creator_name_card">
+        <action
+            android:id="@+id/action_creator_namecard_fragment_to_resultCreatorFragment"
+            app:destination="@id/resultCreatorFragment"
+            app:popUpTo="@id/creatorFragment"
+            app:popUpToInclusive="false"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_left"
+            app:popEnterAnim="@anim/slide_right"
+            app:popExitAnim="@anim/slide_out" />
+        <argument
+            android:name="qrCodeType"
+            app:argType="vn.app.qrcode.data.model.QRCodeType" />
+    </fragment>
+    <fragment
+        android:id="@+id/creatorContactFragment"
+        android:name="vn.app.qrcode.ui.studio.contact.CreatorContactFragment"
+        android:label="CreatorContactFragment"
+        tools:layout="@layout/fragment_creator_contact">
+        <action
+            android:id="@+id/action_creator_contact_fragment_to_result_creator_fragment"
+            app:destination="@id/resultCreatorFragment"
+            app:popUpTo="@id/creatorFragment"
+            app:popUpToInclusive="false"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_left"
+            app:popEnterAnim="@anim/slide_right"
+            app:popExitAnim="@anim/slide_out" />
+        <argument
+            android:name="qrCodeType"
+            app:argType="vn.app.qrcode.data.model.QRCodeType" />
+    </fragment>
+    <fragment
+        android:id="@+id/qrCodeDetailFragment"
+        android:name="vn.app.qrcode.ui.detail.QrCodeDetailFragment"
+        android:label="QrCodeDetailFragment"
+        tools:layout="@layout/fragment_qr_code_detail">
+        <argument
+            android:name="qrCodeItem"
+            app:argType="vn.app.qrcode.data.model.QRCodeCreator" />
+    </fragment>
+
+</navigation>

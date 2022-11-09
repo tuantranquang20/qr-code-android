@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" >
+
+    <data>
+
+        <variable
+            name="qrCodeType"
+            type="vn.app.qrcode.data.model.QRCodeType" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/header_app_bar"
+            layout="@layout/layout_header_app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/header_app_bar"
+            app:layout_constraintVertical_bias="1.0">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="@dimen/padding_bottom_in_scroll_view"
+                android:paddingHorizontal="@dimen/spacing_padding_vertical_content">
+
+                <include
+                    android:id="@+id/layoutIconText"
+                    layout="@layout/item_creator"
+                    qrCodeType="@{qrCodeType}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!--Name-->
+                <EditText
+                    android:id="@+id/edit_text_name"
+                    style="@style/TextNotoStyle.TextLargeBold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:background="@drawable/bg_radius_edit_text"
+                    android:hint="@string/hint_namecard_name"
+                    android:inputType="text"
+                    android:lines="1"
+                    android:maxLength="@integer/max_length_text_name"
+                    android:maxLines="1"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="12dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layoutIconText" />
+
+                <TextView
+                    android:id="@+id/tv_error_name"
+                    style="@style/TextErrorStyle.TextNormal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="@+id/parent"
+                    app:layout_constraintStart_toStartOf="@+id/parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edit_text_name" />
+
+
+                <!--Number-->
+                <EditText
+                    android:id="@+id/edit_text_number"
+                    style="@style/TextNotoStyle.TextLargeBold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_top_field_creator"
+                    android:background="@drawable/bg_radius_edit_text"
+                    android:hint="@string/hint_namecard_number"
+                    android:inputType="phone"
+                    android:lines="1"
+                    android:maxLength="@integer/max_length_text_name"
+                    android:maxLines="1"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="44dp"
+                    android:paddingVertical="12dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_error_name" />
+
+                <TextView
+                    android:id="@+id/tv_error_number"
+                    style="@style/TextErrorStyle.TextNormal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edit_text_number" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/img_open_contact"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="12dp"
+                    android:src="@drawable/ic_contacts"
+                    app:layout_constraintBottom_toBottomOf="@+id/edit_text_number"
+                    app:layout_constraintEnd_toEndOf="@+id/edit_text_number"
+                    app:layout_constraintTop_toTopOf="@+id/edit_text_number" />
+
+                <!--Email-->
+                <EditText
+                    android:id="@+id/edit_text_email"
+                    style="@style/TextNotoStyle.TextLargeBold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_top_field_creator"
+                    android:background="@drawable/bg_radius_edit_text"
+                    android:hint="@string/hint_namecard_email"
+                    android:inputType="text"
+                    android:lines="1"
+                    android:maxLength="@integer/max_length_text_email"
+                    android:maxLines="1"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="12dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_error_number" />
+
+                <TextView
+                    android:id="@+id/tv_error_email"
+                    style="@style/TextErrorStyle.TextNormal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edit_text_email" />
+                <!--Your Location-->
+                <EditText
+                    android:id="@+id/edit_text_location"
+                    style="@style/TextNotoStyle.TextLargeBold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_top_field_creator"
+                    android:background="@drawable/bg_radius_edit_text"
+                    android:hint="@string/hint_namecard_location"
+                    android:inputType="text"
+                    android:lines="1"
+                    android:maxLength="@integer/max_length_text"
+                    android:maxLines="1"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="12dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_error_email" />
+
+                <TextView
+                    android:id="@+id/tv_error_location"
+                    style="@style/TextErrorStyle.TextNormal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edit_text_location" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_another_field"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_error_location"
+                    android:overScrollMode="never" />
+
+                <Button
+                    android:id="@+id/add_new_field_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/ButtonAddNewField"
+                    android:layout_marginTop="@dimen/margin_top_field_creator"
+                    android:padding="@dimen/_10sdp"
+                    android:text="@string/add_new_field_btn"
+                    android:gravity="start"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rv_another_field"
+                    />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnCreate"
+                    style="@style/ButtonCreator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_24sdp"
+                    android:paddingHorizontal="@dimen/padding_horizontal_create"
+                    android:text="@string/btn_create"
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/add_new_field_btn" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

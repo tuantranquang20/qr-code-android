@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="qrCodeType"
+            type="vn.app.qrcode.data.model.QRCodeType" />
+
+        <variable
+            name="eventFragment"
+            type="vn.app.qrcode.ui.studio.event.EventFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.studio.event.EventFragment">
+
+        <ImageView
+            android:id="@+id/imgBack"
+            style="@style/ToolbarLeftIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{_ -> eventFragment.onBack()}"
+            android:src="@drawable/ic_left_arrow"
+            app:layout_constraintBottom_toBottomOf="@+id/tvToolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvToolbar" />
+
+        <TextView
+            android:id="@+id/tvToolbar"
+            style="@style/TextNotoStyle.TextXXLarge"
+            tvToolbar="@{qrCodeType.nameId}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvToolbar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="16dp"
+                android:paddingBottom="100dp">
+
+                <include
+                    android:id="@+id/layoutIconText"
+                    layout="@layout/item_creator"
+                    qrCodeType="@{qrCodeType}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/edit_text_name_event"
+                    style="@style/InputFieldStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:hint="@string/txt_hint_event_name"
+                    android:maxLength="@integer/max_length_text_name"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layoutIconText" />
+
+                <TextView
+                    android:id="@+id/tv_error_event_name"
+                    style="@style/TextErrorStyle.TextNormal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@+id/edit_text_name_event"
+                    app:layout_constraintTop_toBottomOf="@+id/edit_text_name_event" />
+
+                <TextView
+                    android:id="@+id/tv_start_label"
+                    style="@style/TextNotoStyle.TextLarge"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:drawableStart="@drawable/ic_dot"
+                    android:drawablePadding="5dp"
+                    android:text="@string/txt_label_start"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_error_event_name" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/edit_text_start_time"
+                    style="@style/InputFieldStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="4dp"
+                    android:hint="@string/txt_hint_time"
+                    android:maxLength="@integer/max_length_text_name"
+                    app:layout_constraintEnd_toStartOf="@+id/edit_text_start_date"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_start_label" />
+
+                <TextView
+                    android:id="@+id/tv_error_start_time"
+                    style="@style/TextErrorStyle.TextNormal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@+id/edit_text_start_time"
+                    app:layout_constraintTop_toBottomOf="@+id/edit_text_start_time" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/edit_text_start_date"
+                    style="@style/InputFieldStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:drawableEnd="@drawable/ic_calendar"
+                    android:hint="@string/txt_hint_date"
+                    android:maxLength="@integer/max_length_text_name"
+                    app:layout_constraintBottom_toBottomOf="@+id/edit_text_start_time"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/edit_text_start_time"
+                    app:layout_constraintTop_toTopOf="@+id/edit_text_start_time" />
+
+                <TextView
+                    android:id="@+id/tv_end_label"
+                    style="@style/TextNotoStyle.TextLarge"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:drawableStart="@drawable/ic_dot"
+                    android:drawablePadding="5dp"
+                    android:text="@string/txt_label_end"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_error_start_time" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/edit_text_end_time"
+                    style="@style/InputFieldStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="4dp"
+                    android:hint="@string/txt_hint_time"
+                    android:inputType="time"
+                    android:maxLength="@integer/max_length_text_name"
+                    app:layout_constraintEnd_toStartOf="@+id/edit_text_end_date"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_end_label" />
+
+                <TextView
+                    android:id="@+id/tv_error_end_time"
+                    style="@style/TextErrorStyle.TextNormal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@+id/edit_text_end_time"
+                    app:layout_constraintTop_toBottomOf="@+id/edit_text_end_time" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/edit_text_end_date"
+                    style="@style/InputFieldStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:drawableEnd="@drawable/ic_calendar"
+                    android:hint="@string/txt_hint_date"
+                    android:inputType="date"
+                    android:maxLength="@integer/max_length_text_name"
+                    app:layout_constraintBottom_toBottomOf="@+id/edit_text_end_time"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/edit_text_end_time"
+                    app:layout_constraintTop_toTopOf="@+id/edit_text_end_time" />
+
+                <EditText
+                    android:id="@+id/edit_text_location"
+                    style="@style/InputFieldStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:hint="@string/txt_hint_location"
+                    android:maxLength="@integer/max_length_text"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_error_end_time" />
+
+                <TextView
+                    android:id="@+id/tv_error_location"
+                    style="@style/TextErrorStyle.TextNormal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@+id/edit_text_location"
+                    app:layout_constraintTop_toBottomOf="@+id/edit_text_location" />
+
+                <EditText
+                    android:id="@+id/edit_text_description"
+                    style="@style/InputFieldStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:hint="@string/txt_hint_description"
+                    android:lines="10"
+                    android:maxLength="@integer/max_length_text"
+                    android:maxLines="10"
+                    android:scrollbars="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_error_location" />
+
+                <TextView
+                    android:id="@+id/tv_error_description"
+                    style="@style/TextErrorStyle.TextNormal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@+id/edit_text_description"
+                    app:layout_constraintTop_toBottomOf="@+id/edit_text_description" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnCreate"
+                    style="@style/ButtonCreator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="35dp"
+                    android:paddingHorizontal="@dimen/padding_horizontal_create"
+                    android:onClick="@{_-> eventFragment.createQrCode()}"
+                    android:text="@string/btn_create"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edit_text_description" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

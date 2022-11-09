@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:overScrollMode="never">
+    <vn.app.qrcode.ui.setting.SettingSwitchPreference
+        android:defaultValue="false"
+        android:icon="@drawable/ic_setting_vibrate"
+        android:key="@string/pref_key_setting_vibrate"
+        android:persistent="true"
+        android:title="@string/pref_title_setting_vibrate" />
+
+    <androidx.preference.Preference
+        android:icon="@drawable/ic_setting_share"
+        android:key="@string/pref_key_setting_app_sharing"
+        android:title="@string/pref_title_setting_app_sharing" />
+
+    <androidx.preference.Preference
+        android:icon="@drawable/ic_setting_policy"
+        android:key="@string/pref_key_setting_user_policy"
+        android:title="@string/pref_title_setting_user_policy">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="https://sites.google.com/view/qr-codes-canner/home" />
+    </androidx.preference.Preference>
+</androidx.preference.PreferenceScreen>

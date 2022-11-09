@@ -1,0 +1,335 @@
+<resources>
+    <string name="app_name">QR code</string>
+    <string name="lost_connection">Mất kết nối</string>
+
+    <!-- Bottom navigation-->
+    <string name="title_nav_product">Product</string>
+    <string name="title_nav_studio">Studio</string>
+    <string name="title_nav_history">History</string>
+    <string name="title_nav_setting">Setting</string>
+
+    <!--    Product screen-->
+    <string name="text_search_product">Search for product</string>
+    <string name="text_not_found_history">Not found your history.\nStart now</string>
+
+    <!-- Creator URL-->
+    <string name="text_tool_bar"> QR Creator</string>
+    <string name="txt_hint_fb_url">https://www.facebook.com/yourpage</string>
+    <string name="txt_hint_tw_url">https://www.twitter.com/yourpage</string>
+    <string name="txt_hint_ig_url">https://www.instagram.com/yourpage</string>
+    <string name="txt_hint_url">http://</string>
+    <string name="txt_default_url">http://</string>
+    <string name="txt_default_fb_url">https://www.facebook.com/</string>
+    <string name="txt_default_tw_url">https://www.twitter.com/</string>
+    <string name="txt_default_ig_url">https://www.instagram.com/</string>
+    <string name="btn_create">Create</string>
+    <string name="txt_prefix_footer_url">Enter User ID </string>
+    <string name="txt_subfix_footer_url"> from %1$s\nand press Create button to generate QR code</string>
+    <string name="txt_footer_url"><b>Enter User ID</b> from %1$s\nand press Create button to generate QR code</string>
+    <string name="txt_footer_fb_url"><b>Enter User ID</b> from Facebook\nand press Create button to generate QR code</string>
+    <string name="txt_footer_tw_url"><b>Enter User ID</b> from Twitter\nand press Create button to generate QR code</string>
+    <string name="txt_footer_ig_url"><b>Enter User ID</b> from Instagram\nand press Create button to generate QR code</string>
+    <string name="txt_error_invalid">Invalid format!</string>
+    <string name="txt_error_phone">Invalid phone number format (must have 8 to 15 characters)</string>
+
+    <string name="content_description_back" translatable="false">Back</string>
+    <string name="content_description_share" translatable="false">Share</string>
+    <string name="create_qr_code" translatable="false">Create QR code</string>
+    <string name="home_productinfo_title" translatable="false">Produce Information</string>
+
+    <!--    mlkit string-->
+    <string name="entry_java_title">Java</string>
+    <string name="entry_java_subtitle">Run the MLKit Showcase written in Java.</string>
+    <string name="entry_kotlin_title">Kotlin</string>
+    <string name="entry_kotlin_subtitle">Run the MLKit Showcase written in Kotlin.</string>
+    <string name="mode_odt_live_title">Object Detection: Live Camera</string>
+    <string name="mode_odt_live_subtitle">A device’s live camera can be used to detect objects in an environment.</string>
+    <string name="mode_odt_static_title">Object Detection: Static Image</string>
+    <string name="mode_odt_static_subtitle">One or more objects can be detected from a provided image.</string>
+    <string name="mode_barcode_live_title">Barcode Scanning</string>
+    <string name="mode_barcode_live_subtitle">Read data encoded in most standard barcode formats.</string>
+    <string name="custom_model_live_title">Object Detection: Live Camera with Custom Classification (Birds)</string>
+    <string name="custom_model_live_subtitle">A device\'s live camera can be used to detect birds in an environment.</string>
+    <string name="settings_title">MLKit Showcase Settings</string>
+    <string name="cd_settings_button">Settings</string>
+    <string name="cd_close_button">Back</string>
+    <string name="cd_flash_button">Toggle camera flash</string>
+    <string name="cd_photo_library_button">Upload image</string>
+    <string name="prompt_point_at_an_object">Point your camera at an object</string>
+    <string name="prompt_point_at_a_barcode">Point your camera at a barcode</string>
+    <string name="prompt_point_at_a_bird">Point your camera at a bird</string>
+    <string name="prompt_hold_camera_steady">Keep camera still for a moment</string>
+    <string name="prompt_move_camera_closer">Move closer to search</string>
+    <string name="prompt_searching">Searching&#8230;</string>
+    <string name="product_search_button">Search object</string>
+    <plurals name="bottom_sheet_title">
+        <item quantity="one">%d match found</item>
+        <item quantity="other">%d matches found</item>
+    </plurals>
+    <string name="buttom_sheet_custom_model_title">Custom object found</string>
+    <string name="static_image_prompt_detected_no_results">No results found</string>
+    <string name="static_image_prompt_detected_results">Tap on a dot to inspect</string>
+    <string name="static_image_card_no_result_title">No result found</string>
+    <string name="static_image_card_no_result_subtitle">Support text place holder</string>
+    <string name="static_image_preview_card_subtitle">+%d more results</string>
+
+    <!-- Strings for camera settings. -->
+    <string name="pref_category_camera">Camera</string>
+    <string name="pref_key_rear_camera_preview_size" translatable="false">rcpvs</string>
+    <string name="pref_key_rear_camera_picture_size" translatable="false">rcpts</string>
+    <string name="pref_title_rear_camera_preview_size">Rear camera preview size</string>
+
+    <!-- Strings for object detection settings. -->
+    <string name="pref_category_object_detection">Object detection</string>
+    <string name="pref_key_object_detector_enable_multiple_objects" translatable="false">odemo</string>
+    <string name="pref_title_object_detector_enable_multiple_objects">Enable multiple objects</string>
+    <string name="pref_key_object_detector_enable_classification" translatable="false">odec</string>
+    <string name="pref_title_object_detector_enable_classification">Enable classification</string>
+
+    <!-- Strings for product search settings. -->
+    <string name="pref_category_product_search">Product search</string>
+    <string name="pref_key_enable_auto_search" translatable="false">pkeas</string>
+    <string name="pref_title_enable_auto_search">Enable auto search</string>
+    <string name="pref_key_confirmation_time_in_manual_search" translatable="false">ctims</string>
+    <string name="pref_title_confirmation_time_in_manual_search">Confirmation time in manual search</string>
+    <string name="pref_summary_confirmation_time_in_manual_search">Ranges from 100ms to 1000ms</string>
+    <string name="pref_key_confirmation_time_in_auto_search" translatable="false">ctias</string>
+    <string name="pref_title_confirmation_time_in_auto_search">Confirmation time in auto search</string>
+    <string name="pref_summary_confirmation_time_in_auto_search">Ranges from 500ms to 2000ms</string>
+
+    <!-- Strings for barcode detection settings. -->
+    <string name="pref_category_barcode_detection">Barcode detection</string>
+    <string name="pref_key_barcode_reticle_width" translatable="false">barcode_brw</string>
+    <string name="pref_title_barcode_reticle_width">Barcode reticle width</string>
+    <string name="pref_summary_barcode_reticle_width" formatted="false">Relative to the camera view width, ranges from 50% to 95%</string>
+    <string name="pref_key_barcode_reticle_height" translatable="false">barcode_brh</string>
+    <string name="pref_title_barcode_reticle_height">Barcode reticle height</string>
+    <string name="pref_summary_barcode_reticle_height" formatted="false">Relative to the camera view height, ranges from 20% to 80%</string>
+    <string name="pref_key_enable_barcode_size_check" translatable="false">barcode_ebsc</string>
+    <string name="pref_title_enable_barcode_size_check">Enable barcode size check</string>
+    <string name="pref_summary_enable_barcode_size_check">Will prompt user to move camera closer if the detected barcode is too small</string>
+    <string name="pref_key_minimum_barcode_width" translatable="false">barcode_mbw</string>
+    <string name="pref_title_minimum_barcode_width">Minimum barcode width</string>
+    <string name="pref_summary_minimum_barcode_width" formatted="false">Relative to the reticle width, ranges from 20% to 80% (only applicable when barcode size check enabled)</string>
+    <string name="pref_key_delay_loading_barcode_result" translatable="false">barcode_dlbr</string>
+    <string name="pref_title_delay_loading_barcode_result">Delay loading barcode result</string>
+    <string name="pref_summary_delay_loading_barcode_result">Will show the loading spinner for 2s</string>
+    <string name="type_dr_code_label">Type DR Code:</string>
+
+    <string name="facebook_app_id">1234</string>
+    <string name="facebook_client_token">56789</string>
+
+    <string name="pref_key_front_camera_preview_size" translatable="false">fcpvs</string>
+    <string name="pref_key_front_camera_picture_size" translatable="false">fcpts</string>
+
+    <string name="share_title">Share this QR Code</string>
+
+    <!--    Camera Screen-->
+    <string name="can_not_scan">Unable to scan code! \n Please rescan or choose another photo.</string>
+
+    <!--    Result scan screen-->
+    <string name="result_screen_title">Result Scan</string>
+    <string name="result_screen_open_with">Open with</string>
+
+    <string name="error_empty">Please fill in this field!</string>
+    <string name="error_invalid">Invalid format!</string>
+
+    <!--    Type Email-->
+    <string name="open_email">Open Email</string>
+    <string name="hint_email_address">To</string>
+    <string name="hint_email_cc">cc</string>
+    <string name="hint_email_subject">Subject</string>
+    <string name="hint_email_message">Enter your message...</string>
+    <string name="label_email_message">Message</string>
+    <string name="not_valid_email">This is not a valid email code: %s</string>
+
+    <!--    Type SMS-->
+    <string name="open_message">Open Message</string>
+    <string name="label_sms_to">To</string>
+    <string name="label_sms_message">Message</string>
+
+    <!--    Type Contact-->
+    <string name="open_contact">Open Contact</string>
+    <string name="label_contact_name">Name</string>
+    <string name="label_contact_number">Number</string>
+    <string name="label_contact_email">Email</string>
+    <string name="label_contact_location">Your location</string>
+    <string name="label_contact_facebook">Facebook</string>
+    <string name="label_contact_position">Position</string>
+    <string name="label_contact_birthday">Birthday</string>
+    <string name="label_contact_note">Note</string>
+    <string name="hint_contact_location">Your Location...</string>
+
+    <!--    Type Url-->
+    <string name="open_browser">Open Browser</string>
+    <string name="label_url_link">Link</string>
+
+    <!--    Type Wifi-->
+    <string name="connect_wifi">Connect this network</string>
+    <string name="hint_wifi_ssid">SSID</string>
+    <string name="hint_wifi_password">Password</string>
+    <string name="label_wifi_encryption">Encryption Type</string>
+    <string name="save_this_network">Save this network!</string>
+    <string name="update_version_SDK">Please Update SDK version!</string>
+    <string name="error_empty_ssid">Please Enter your SSID!</string>
+    <string name="error_password_short">Password needs to be at least 8 characters!</string>
+
+    <!--    Type Location-->
+    <string name="label_location">Location</string>
+    <string name="open_map">Open Map</string>
+    <string name="label_location_latitude">Latitude</string>
+    <string name="label_location_longitude">Longitude</string>
+    <string name="label_location_address">Address</string>
+
+    <!--    Type Calendar-->
+    <string name="open_calendar">Open Calendar</string>
+    <string name="label_event_name">Event Name</string>
+    <string name="label_event_start_datetime">Start</string>
+    <string name="label_event_end_datetime">End</string>
+    <string name="label_event_location">Location</string>
+    <string name="label_event_description">Description</string>
+    <string name="tag_start_time_picker_dialog" translatable="false">start_time_picker</string>
+    <string name="tag_end_time_picker_dialog" translatable="false">end_time_picker</string>
+    <string name="tag_start_date_picker_dialog" translatable="false">start_date_picker</string>
+    <string name="tag_end_date_picker_dialog" translatable="false">end_date_picker</string>
+    <string name="tag_birthday_date_picker_dialog" translatable="false">birthday_date_picker</string>
+
+    <!--    Type Note-->
+    <string name="open_note">Open Note</string>
+    <string name="copy_text">Copy to Clipboard</string>
+    <string name="copy_text_success">Copy to Clipboard success!</string>
+    <string name="copy_text_fail">Copy to Clipboard fail!</string>
+    <string name="label_text_message">Your Message</string>
+
+    <!--    Type NameCard-->
+    <string name="open_namecard">Open Name card</string>
+    <string name="hint_namecard_name">Name</string>
+    <string name="hint_namecard_number">Number</string>
+    <string name="hint_namecard_email">Email</string>
+    <string name="hint_edittext_namecard_email">Example: Email@gmail.com</string>
+    <string name="hint_namecard_location">Your location...</string>
+    <string name="hint_namecard_position">Position</string>
+    <string name="hint_namecard_website">Website</string>
+    <string name="hint_namecard_note">Note...</string>
+    <string name="label_namecard_note">Note</string>
+    <string name="label_namecard_location">Location</string>
+
+    <!--    Type Social Network-->
+    <string name="open_facebook">Open Facebook</string>
+    <string name="label_facebook">Link Facebook</string>
+    <string name="open_twitter">Open Twitter</string>
+    <string name="label_twitter">Link Twitter</string>
+    <string name="open_instagram">Open Instagram</string>
+    <string name="label_instagram">Link Instagram</string>
+    <string name="scan_error">Image scan failed! \n Please try again or scan other image!</string>
+
+    <!--    create wifi-->
+    <string name="create_wifi_type_name">Wifi</string>
+    <string name="create_wifi_ssid">SSID</string>
+    <string name="create_wifi_password">Password</string>
+    <string name="create_wifi_wpa">WPA/WPA2</string>
+    <string name="create_wifi_wep">WEP</string>
+    <string name="create_wifi_none">None</string>
+
+    <!--    Email wifi-->
+    <string name="create_email_title">Create Email QR</string>
+    <string name="create_wifi_title">Create Wifi QR</string>
+    <string name="create_contact_title">Create Contact QR</string>
+    <string name="txt_name_card_title">Create Name Card QR</string>
+    <string name="txt_tool_bar">Create %s QR</string>
+
+    <!--    Result creator-->
+    <string name="result_creator_email">Email QR</string>
+    <string name="result_creator_wifi">Wifi QR</string>
+    <string name="result_creator_name_card">Name Card QR</string>
+    <string name="result_creator_message">Message QR</string>
+    <string name="result_creator_contact">Contact QR</string>
+    <string name="result_creator_url">URL QR</string>
+    <string name="result_creator_location">Location QR</string>
+    <string name="result_creator_event">Event QR</string>
+    <string name="result_creator_text">Text QR</string>
+    <string name="result_creator_facebook">Facebook QR</string>
+    <string name="result_creator_twitter">Twitter QR</string>
+    <string name="result_creator_instagram">Instagram QR</string>
+    <string name="creator_result_save">Save image</string>
+    <string name="creator_result_share">Share</string>
+    <string name="save_success">Successfully Save</string>
+    <string name="add_new_field_btn">Add new field</string>
+
+    <!-- Creator event -->
+    <string name="txt_hint_event_name">Event Name</string>
+    <string name="txt_hint_time">Time</string>
+    <string name="txt_hint_date">Date</string>
+    <string name="txt_hint_location">Location</string>
+    <string name="txt_hint_description">Description</string>
+    <string name="txt_label_start">Start</string>
+    <string name="txt_label_end">End</string>
+
+    <!-- Creator location -->
+    <string name="txt_error_location_longitude">Longitude value should be between -180 and 180</string>
+    <string name="txt_error_location_latitude">Latitude value should be between -90 and 90</string>
+    <string name="txt_hint_to">To</string>
+    <string name="text_display">Text</string>
+    <string name="txt_hint_latitude">Latitude</string>
+    <string name="txt_hint_longitude">Longitude</string>
+    <string name="txt_hint_query">Query</string>
+    <string name="txt_turn_on_location">Please Turn on Your device Location</string>
+    <string name="txt_location_find">Your Location is finding</string>
+    <string name="txt_title_map">Map</string>
+    <string name="txt_hint_enter_your_location">Enter your location</string>
+    <string name="txt_btn_cancel">Cancel</string>
+    <string name="txt_btn_done">Done</string>
+
+    <string name="txt_address_not_found">Address not found</string>
+
+    <!--Studio-->
+    <string name="radio_studio_your_code">Your Code</string>
+    <string name="radio_studio_favorite">Favorite</string>
+    <string name="alert_delete_title">Delete</string>
+    <string name="alert_delete_item_message">Are you sure you want to delete this QRCode?</string>
+    <string name="alert_delete_items_message">Are you sure you want to delete selected QRCodes?</string>
+    <string name="alert_delete_btn_positive">Delete</string>
+    <string name="alert_delete_btn_negative">Cancel</string>
+    <string name="delete_success">Delete success!</string>
+
+
+    <!--Filter Bottom Dialog-->
+    <string name="filter_item_all">All</string>
+    <string name="filter_item_email">Email</string>
+    <string name="filter_item_message">Message</string>
+    <string name="filter_item_contact">Contact</string>
+    <string name="filter_item_url">URL</string>
+    <string name="filter_item_wifi">Wifi</string>
+    <string name="filter_item_location">Location</string>
+    <string name="filter_item_event">Event</string>
+    <string name="filter_item_text">Text</string>
+    <string name="filter_item_name_card">Name card</string>
+    <string name="filter_item_facebook">Facebook</string>
+    <string name="filter_item_twitter">Twitter</string>
+    <string name="filter_item_instagram">Instagram</string>
+    <string name="txt_location_qr_creator">Location QR Creator</string>
+    <string name="txt_error_required">Please fill the required field!</string>
+    <string name="txt_error_event_date_time">End date should be after the start date</string>
+
+    <!-- setting screen -->
+    <string name="pref_title_setting_sound">Sound</string>
+    <string name="pref_title_setting_vibrate">Vibrate</string>
+    <string name="pref_title_setting_app_sharing">App Sharing</string>
+    <string name="pref_title_setting_user_policy">User Policy</string>
+    <string name="pref_key_setting_sound" translatable="false">pkss</string>
+    <string name="pref_key_setting_vibrate" translatable="false">pksv</string>
+    <string name="pref_key_setting_app_sharing" translatable="false">pksas</string>
+    <string name="pref_key_setting_user_policy" translatable="false">pksup</string>
+    <string name="txt_btn_rate">Rate</string>
+    <string name="txt_setting_hello">Hello,</string>
+    <string name="txt_setting_think_question">Do you think it useful?</string>
+    <string name="txt_share_app" translatable="false">Hey check out my app at: %1$s</string>
+
+    <string name="txt_error_empty" />
+    <string name="txt_error_password">Password must be at least 8 characters</string>
+
+    <string name="txt_success_save_image">Successfully save</string>
+    <string name="txt_fail_save_image">Fail save</string>
+    <string name="txt_filter">Filter</string>
+    <string name="txt_create">Create</string>
+</resources>

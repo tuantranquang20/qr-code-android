@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:keepScreenOn="true">
+
+        <vn.app.qrcode.ui.home.camera.mlkit.camera.CameraSourcePreview
+            android:id="@+id/camera_preview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <include layout="@layout/layout_camera_preview_overlay" />
+
+        </vn.app.qrcode.ui.home.camera.mlkit.camera.CameraSourcePreview>
+
+        <include
+            layout="@layout/layout_top_action_bar_in_live_camera"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/layoutVolumeSlider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="bottom"
+            android:layout_marginVertical="@dimen/_40sdp"
+            android:layout_marginHorizontal="@dimen/top_action_bar_padding_horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/camera_preview"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.9"
+            android:weightSum="10">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/zoom_out_btn"
+                android:padding="@dimen/_5sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_zoom_out"
+                />
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/sliderZoom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:thumbColor="@color/white"
+                app:trackColorInactive="#60FFFFFF"
+                android:valueFrom="0.0"
+                android:valueTo="99.0"
+                android:layout_weight="10"
+                app:labelBehavior = "gone"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/zoom_in_btn"
+                android:padding="@dimen/_5sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_zoom_in"
+                />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="qrCodeType"
+            type="vn.app.qrcode.data.model.QRCodeType" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/header_app_bar"
+            layout="@layout/layout_header_app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/header_app_bar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="@dimen/padding_bottom_in_scroll_view"
+                android:paddingHorizontal="@dimen/spacing_padding_vertical_content">
+
+                <include
+                    android:id="@+id/layoutIconText"
+                    layout="@layout/item_creator"
+                    qrCodeType="@{qrCodeType}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!--Address-->
+                <EditText
+                    android:id="@+id/edit_text_address"
+                    style="@style/TextNotoStyle.TextLargeBold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:background="@drawable/bg_radius_edit_text"
+                    android:hint="@string/hint_email_address"
+                    android:inputType="text"
+                    android:lines="1"
+                    android:maxLength="@integer/max_length_text_email"
+                    android:maxLines="1"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="42dp"
+                    android:paddingVertical="12dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layoutIconText" />
+
+                <TextView
+                    android:id="@+id/tv_error_address"
+                    style="@style/TextErrorStyle.TextNormal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="@+id/parent"
+                    app:layout_constraintStart_toStartOf="@+id/parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edit_text_address" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/img_add_address_field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_end_icon_in_edit_text"
+                    android:src="@drawable/ic_add_circle"
+                    app:layout_constraintBottom_toBottomOf="@+id/edit_text_address"
+                    app:layout_constraintEnd_toEndOf="@+id/edit_text_address"
+                    app:layout_constraintTop_toTopOf="@+id/edit_text_address" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:overScrollMode="never"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_error_address" />
+
+                <!--Subject-->
+                <EditText
+                    android:id="@+id/edit_text_subject"
+                    style="@style/TextNotoStyle.TextLargeBold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_top_field_creator"
+                    android:background="@drawable/bg_radius_edit_text"
+                    android:hint="@string/hint_email_subject"
+                    android:inputType="text"
+                    android:lines="1"
+                    android:maxLength="@integer/max_length_text_name"
+                    android:maxLines="1"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="12dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rv_address" />
+
+                <TextView
+                    android:id="@+id/tv_error_subject"
+                    style="@style/TextErrorStyle.TextNormal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="@+id/parent"
+                    app:layout_constraintStart_toStartOf="@+id/parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edit_text_subject" />
+
+                <!--Message-->
+                <EditText
+                    android:id="@+id/edit_text_message"
+                    style="@style/TextNotoStyle.TextLargeBold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_top_field_creator"
+                    android:background="@drawable/bg_radius_edit_text"
+                    android:gravity="top|start"
+                    android:hint="@string/hint_email_message"
+                    android:lines="10"
+                    android:maxLength="@integer/max_length_text_area"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="12dp"
+                    android:scrollbars="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_error_subject" />
+                <TextView
+                    android:id="@+id/textSize"
+                    style="@style/TextNotoStyle.TextNormal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue1"
+                    android:layout_marginEnd="4dp"
+                    app:layout_constraintEnd_toEndOf="@+id/edit_text_message"
+                    app:layout_constraintTop_toTopOf="@+id/edit_text_message"
+                    tools:text="1000" />
+
+                <TextView
+                    android:id="@+id/tv_error_message"
+                    style="@style/TextErrorStyle.TextNormal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="@+id/parent"
+                    app:layout_constraintStart_toStartOf="@+id/parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edit_text_message" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnCreate"
+                    style="@style/ButtonCreator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_24sdp"
+                    android:paddingHorizontal="@dimen/padding_horizontal_create"
+                    android:text="@string/btn_create"
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_error_message" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

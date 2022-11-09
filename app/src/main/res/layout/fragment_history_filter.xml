@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="vn.app.qrcode.ui.history.HistoryViewModel" />
+
+        <variable
+            name="historyFilterFragment"
+            type="vn.app.qrcode.ui.history.HistoryFilterDialogFragment" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/rounded_bottom_sheet_dialog">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvListQrCodeType"
+            android:layout_width="match_parent"
+            android:layout_height="264dp"
+            android:layout_marginTop="28dp"
+            android:scrollbars="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnFilter"
+            style="@style/ButtonPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginHorizontal="24dp"
+            android:onClick="@{_ -> historyFilterFragment.filterQrCode()}"
+            android:text="Filter" />
+    </LinearLayout>
+</layout>

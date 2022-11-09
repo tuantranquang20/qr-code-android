@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="qrCodeType"
+            type="vn.app.qrcode.data.model.QRCodeType" />
+
+        <variable
+            name="urlFragment"
+            type="vn.app.qrcode.ui.studio.url.UrlFragment" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.studio.url.UrlFragment">
+
+            <ImageView
+                android:id="@+id/imgBack"
+                style="@style/ToolbarLeftIcon"
+                android:onClick="@{_ -> urlFragment.onBack()}"
+                android:src="@drawable/ic_left_arrow"
+                app:layout_constraintBottom_toBottomOf="@+id/tvToolbar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvToolbar" />
+
+            <TextView
+                android:id="@+id/tvToolbar"
+                style="@style/TextNotoStyle.TextXXLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tvToolbar="@{qrCodeType.nameId}"
+                />
+
+            <include
+                android:id="@+id/layoutIconUrl"
+                layout="@layout/item_creator"
+                qrCodeType="@{qrCodeType}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvToolbar" />
+
+            <EditText
+                android:id="@+id/editTextUrl"
+                style="@style/TextNotoStyle.TextLargeBold"
+                hintEditTextUrl="@{qrCodeType.type}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/bg_radius_edit_text"
+                android:hint="@string/txt_hint_url"
+                android:inputType="text"
+                android:maxLength="@integer/max_length_text_url"
+                android:layout_marginHorizontal="16dp"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layoutIconUrl" />
+
+            <TextView
+                android:id="@+id/tvError"
+                style="@style/TextErrorStyle.TextNormal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                app:layout_constraintEnd_toEndOf="@+id/editTextUrl"
+                app:layout_constraintStart_toStartOf="@+id/editTextUrl"
+                app:layout_constraintTop_toBottomOf="@+id/editTextUrl" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnCreate"
+                style="@style/ButtonCreator"
+                android:paddingHorizontal="@dimen/padding_horizontal_create"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/btn_create"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextUrl"
+                android:onClick="@{_-> urlFragment.createUrlQrCode()}"/>
+
+            <include
+                android:id="@+id/layoutFooter"
+                layout="@layout/layout_footer_fb"
+                qrCodeType="@{qrCodeType}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginBottom="42dp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+</layout>

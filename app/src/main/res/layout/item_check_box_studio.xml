@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="qrCodeType"
+            type="vn.app.qrcode.data.model.QRCodeType" />
+
+        <variable
+            name="qrCodeTypeListener"
+            type="vn.app.qrcode.ui.studio.QrCodeTypeListener" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="4dp"
+        android:paddingHorizontal="24dp">
+
+        <CheckBox
+            android:id="@+id/checkType"
+            style="@style/TextNotoStyle.TextLarge"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:button="@drawable/bg_filter_check_box"
+            android:paddingLeft="4dp"
+            android:background="@android:color/transparent"
+            android:onClick="@{() -> qrCodeTypeListener.onSelectedType(qrCodeType)}"
+            android:text="@{qrCodeType.nameId}"
+            tools:text="Message" />
+    </LinearLayout>
+</layout>

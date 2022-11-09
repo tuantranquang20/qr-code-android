@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="vn.app.qrcode.ui.home.camera.CameraViewModel" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/layout_field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/layout_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/spacing_xxxsmall"
+            android:background="@drawable/bg_border_item"
+            android:orientation="vertical"
+            android:paddingVertical="@dimen/spacing_xmedium"
+            android:paddingStart="@dimen/spacing_xmedium"
+            android:paddingEnd="@dimen/spacing_x_small"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/barcode_field_label"
+                style="@style/TextLabelResultScan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textFontWeight="600"
+                tools:text="Coconut Chocolate" />
+
+            <TextView
+                android:id="@+id/barcode_field_value"
+                style="@style/TextPoppinsMedium.Size14.Weight400"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textFontWeight="600"
+                tools:text="123123" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <ImageView
+            android:id="@+id/favorite_btn_fake"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_weight="10"
+            />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>
+

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="vn.app.qrcode.ui.studio.StudioViewModel" />
+
+        <variable
+            name="studioFragment"
+            type="vn.app.qrcode.ui.studio.StudioFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/dark4"
+        tools:context=".ui.studio.StudioFragment">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTitle"
+                style="@style/TextPoppinsMedium.Size18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/title_nav_studio"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btnAction"
+                style="@style/ToolbarRightFilterIcon"
+                app:layout_constraintBottom_toBottomOf="@+id/tvTitle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvTitle"
+                app:srcCompat="@drawable/ic_filter"
+                android:background="@drawable/ripple_effect_dark3" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_recycle"
+                style="@style/ToolbarRightRecycleIcon"
+                android:visibility="gone"
+                android:onClick="@{_ -> studioFragment.deleteSelectedQrItems()}"
+                app:layout_constraintBottom_toBottomOf="@+id/tvTitle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvTitle"
+                app:srcCompat="@drawable/ic_recycle"
+                android:background="@drawable/ripple_effect_dark3" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupStudio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/radio_studio_bg"
+            android:checkedButton="@+id/radio_your_code"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="16dp"
+            android:weightSum="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle">
+
+            <RadioButton
+                android:id="@+id/radio_your_code"
+                style="@style/RadioButtonStudio"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/radio_studio_your_code" />
+
+            <RadioButton
+                android:id="@+id/radio_favorite"
+                style="@style/RadioButtonStudio"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="@string/radio_studio_favorite" />
+        </RadioGroup>
+
+        <simrv.SlidingItemMenuRecyclerView
+            android:id="@+id/rv_studio_your_code"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingBottom="100dp"
+            android:clipToPadding="false"
+            android:layout_marginTop="@dimen/spacing_xhxlarge"
+            android:scrollbars="none"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroupStudio"/>
+
+        <simrv.SlidingItemMenuRecyclerView
+            android:id="@+id/rv_studio_favorite"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingBottom="100dp"
+            android:clipToPadding="false"
+            android:layout_marginTop="@dimen/spacing_xhxlarge"
+            android:scrollbars="none"
+            android:visibility="gone"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroupStudio"/>
+
+        <include
+            android:id="@+id/layout_no_data_history"
+            layout="@layout/layout_no_data_history"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="36dp"
+            android:backgroundTint="@color/blue2"
+            android:onClick="@{_ -> studioFragment.toCreatorScreen()}"
+            android:src="@drawable/ic_add"
+            app:borderWidth="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:tint="@android:color/white" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="qrCodeCreator"
+            type="vn.app.qrcode.data.model.QRCodeCreator" />
+
+        <variable
+            name="qrItemType"
+            type="vn.app.qrcode.data.constant.QrItemType" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:orientation="horizontal" >
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_favorite_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp" >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="10dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imgIcon"
+                    iconQrCode="@{qrCodeCreator.type}"
+                    android:layout_width="@dimen/icon_size"
+                    android:layout_height="@dimen/icon_size"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@drawable/ic_wifi" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/img_mark_favorite_item"
+                    android:layout_width="@dimen/icon_size"
+                    android:layout_height="@dimen/icon_size"
+                    android:src="@drawable/ic_mark_item"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/view_overlay"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <TextView
+                    android:id="@+id/tvDisplayName"
+                    style="@style/TextNotoStyle.TextLarge"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@{qrCodeCreator.displayName}"
+                    app:layout_constraintEnd_toStartOf="@+id/share_favorite_btn"
+                    app:layout_constraintStart_toEndOf="@+id/imgIcon"
+                    app:layout_constraintTop_toTopOf="@+id/imgIcon"
+                    tools:text="SSID" />
+
+                <TextView
+                    android:id="@+id/tvTimeLastScan"
+                    style="@style/TextNotoStyle2.TextNormal"
+                    displayTime="@{qrCodeCreator}"
+                    qrItemType="@{qrItemType}"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@+id/imgIcon"
+                    app:layout_constraintEnd_toEndOf="@+id/tvDisplayName"
+                    app:layout_constraintStart_toStartOf="@+id/tvDisplayName"
+                    tools:text="12:00:03 12/12/2019" />
+
+                <ImageView
+                    android:id="@+id/share_favorite_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_share"
+                    android:padding="8dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/imgIcon"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/imgIcon" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <FrameLayout
+            android:layout_width="300dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="12dp" >
+
+            <!-- Put your menu items here. The first one will be shown at the horizontal start. -->
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingHorizontal="8dp" >
+
+                    <ImageView
+                        android:id="@+id/delete_favorite_btn"
+                        android:layout_width="@dimen/qrcode_action_btn_size"
+                        android:layout_height="@dimen/qrcode_action_btn_size"
+                        android:background="@drawable/button_delete_studio_bg_active"
+                        android:padding="@dimen/qrcode_action_btn_padding"
+                        android:src="@drawable/ic_delete"
+                        android:layout_gravity="center"/>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </FrameLayout>
+        </FrameLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>
